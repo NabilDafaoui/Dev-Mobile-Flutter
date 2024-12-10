@@ -1,0 +1,37 @@
+name: tp1
+description: "A new Flutter project."
+publish_to: 'none' # Indique que ce package n'est pas publié
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.5.0 <4.0.0" # Version du SDK compatible
+
+dependencies:
+  flutter:
+    sdk: flutter
+  lottie: ^2.3.2
+  cupertino_icons: ^1.0.8
+  provider: ^6.1.2
+  flutter_bloc: ^8.0.1
+  bloc: ^8.0.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/background.jpg
+    - assets/question1.png
+    - assets/question2.png
+    - assets/question3.png
+    - assets/question4.png
+    - assets/question5.png
+    - assets/question6.png
+    - assets/question7.png
+    - assets/question8.png
+    - lib/presentation/animations/congratulations.json
