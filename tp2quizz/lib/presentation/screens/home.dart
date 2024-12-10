@@ -13,7 +13,7 @@ class HomePage extends StatelessWidget {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/background.jpg'),
+            image: AssetImage('assets/background1.jpg'),
             fit: BoxFit.cover,
           ),
         ),
@@ -31,6 +31,10 @@ class HomePage extends StatelessWidget {
               );
             },
             child: Text('Commencer le Quiz'),
+            style: ElevatedButton.styleFrom(
+              padding: EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+              textStyle: TextStyle(fontSize: 20),
+            ),
           ),
         ),
       ),

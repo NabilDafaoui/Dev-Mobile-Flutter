@@ -7,6 +7,8 @@ import '../widgets/question_card.dart';
 import 'score.dart';
 
 class QuizPage extends StatelessWidget {
+  const QuizPage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,25 +20,7 @@ class QuizPage extends StatelessWidget {
           } else if (state is QuizLoaded) {
             return QuestionCard(state: state);
           } else if (state is QuizCompleted) {
-            return Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    'Votre score : ${state.score} / ${state.totalQuestions}',
-                    style: TextStyle(fontSize: 24),
-                  ),
-                  SizedBox(height: 20),
-                  ElevatedButton(
-                    onPressed: () {
-                      context.read<QuizBloc>().add(RestartQuiz());
-                      Navigator.popUntil(context, ModalRoute.withName('/'));
-                    },
-                    child: Text("Rejouer"),
-                  ),
-                ],
-              ),
-            );
+            return ScorePage(score: state.score, totalQuestions: state.totalQuestions);
           } else if (state is QuizError) {
             return Center(child: Text(state.message));
           }

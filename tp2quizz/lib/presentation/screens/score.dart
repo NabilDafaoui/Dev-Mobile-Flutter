@@ -15,9 +15,9 @@ class ScorePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/background.jpg'),
+            image: AssetImage('assets/background1.jpg'),
             fit: BoxFit.cover,
           ),
         ),
@@ -26,14 +26,14 @@ class ScorePage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Lottie.asset(
-                "assets/congratulations.json",
+                "lib/presentation/animations/congratulations.json",
                 height: 200,
                 fit: BoxFit.contain,
               ),
               SizedBox(height: 20),
               Text(
                 "Votre score : $score / $totalQuestions",
-                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.white),
               ),
               SizedBox(height: 30),
               ElevatedButton(
@@ -45,6 +45,10 @@ class ScorePage extends StatelessWidget {
                   );
                 },
                 child: Text("Rejouer"),
+                style: ElevatedButton.styleFrom(
+                  padding: EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+                  textStyle: TextStyle(fontSize: 20),
+                ),
               ),
             ],
           ),
@@ -53,3 +57,4 @@ class ScorePage extends StatelessWidget {
     );
   }
 }
+

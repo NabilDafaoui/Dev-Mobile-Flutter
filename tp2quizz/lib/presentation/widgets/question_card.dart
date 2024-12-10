@@ -13,34 +13,42 @@ class QuestionCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final currentQuestion = state.questions[state.currentQuestionIndex];
 
-    return Padding(
-      padding: const EdgeInsets.all(16.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Text(
-            currentQuestion.questionText,
-            style: TextStyle(fontSize: 22),
-            textAlign: TextAlign.center,
-          ),
-          SizedBox(height: 20),
-          if (currentQuestion.imagePath.isNotEmpty)
-            Image.asset(
-              currentQuestion.imagePath,
-              height: 200,
-              fit: BoxFit.contain,
+    return Container(
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage('assets/background.png'),
+          fit: BoxFit.cover,
+        ),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Text(
+              currentQuestion.questionText,
+              style: TextStyle(fontSize: 22, color: Colors.white),
+              textAlign: TextAlign.center,
             ),
-          SizedBox(height: 20),
-          ElevatedButton(
-            onPressed: () => _submitAnswer(context, true),
-            child: Text("Vrai"),
-          ),
-          SizedBox(height: 10),
-          ElevatedButton(
-            onPressed: () => _submitAnswer(context, false),
-            child: Text("Faux"),
-          ),
-        ],
+            SizedBox(height: 20),
+            if (currentQuestion.imagePath.isNotEmpty)
+              Image.asset(
+                currentQuestion.imagePath,
+                height: 200,
+                fit: BoxFit.contain,
+              ),
+            SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () => _submitAnswer(context, true),
+              child: Text("Vrai"),
+            ),
+            SizedBox(height: 10),
+            ElevatedButton(
+              onPressed: () => _submitAnswer(context, false),
+              child: Text("Faux"),
+            ),
+          ],
+        ),
       ),
     );
   }
