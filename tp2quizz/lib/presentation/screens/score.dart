@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lottie/lottie.dart';
 import '../../business_logic/blocs/quiz_bloc.dart';
 import '../../business_logic/blocs/quiz_event.dart';
+import '../../data/repositories/question_repository.dart';
 import 'home.dart';
 
 class ScorePage extends StatelessWidget {
@@ -38,10 +39,14 @@ class ScorePage extends StatelessWidget {
               SizedBox(height: 30),
               ElevatedButton(
                 onPressed: () {
-                  context.read<QuizBloc>().add(RestartQuiz());
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(builder: (context) => HomePage()),
+                  Navigator.of(context).pushAndRemoveUntil(
+                    MaterialPageRoute(
+                      builder: (context) => BlocProvider(
+                        create: (context) => QuizBloc(QuestionRepository()),
+                        child: HomePage(),
+                      ),
+                    ),
+                        (Route<dynamic> route) => false,
                   );
                 },
                 child: Text("Rejouer"),
@@ -57,4 +62,3 @@ class ScorePage extends StatelessWidget {
     );
   }
 }
-

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'business_logic/blocs/quiz_bloc.dart';
 import 'data/repositories/question_repository.dart';
-import '../../presentation/screens/home.dart';
+import 'presentation/screens/home.dart';
 
 void main() {
   runApp(MyApp());

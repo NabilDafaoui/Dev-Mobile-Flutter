@@ -24,7 +24,7 @@ class HomePage extends StatelessWidget {
               Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (_) => BlocProvider.value(
-                    value: BlocProvider.of<QuizBloc>(context),
+                    value: context.read<QuizBloc>(),
                     child: QuizPage(),
                   ),
                 ),
